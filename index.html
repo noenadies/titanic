@@ -32,6 +32,7 @@
     <script>
         var canvas = document.getElementById("renderCanvas");
         var engine = new BABYLON.Engine(canvas, true);
+        var camera;
 
 engine.caja;
 engine.enableOfflineSupport=false;
@@ -41,7 +42,7 @@ engine.enableOfflineSupport=false;
             var scene = new BABYLON.Scene(engine);
         
             // This creates and positions a free camera (non-mesh)
-            var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+         camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
         
             // This targets the camera to scene origin
             camera.setTarget(BABYLON.Vector3.Zero());
@@ -70,26 +71,25 @@ Caja=caja[0];
 Caja.position= new BABYLON.Vector3(0,0,4);
 scene.registerBeforeRender(function(){
 
-   // Caja.rotation.y=Caja.rotation.y+0.2;
+  
 });
  //if(caja){console.log(4444444444);}
 
         });
-        if(Caja){console.log(4444444444);}
 
-
+camera.position.set(-230.85227,20.6550580,2333.810);
             return scene;
         
         };
-        var a=0;
+      
         var scene = createScene();
 
         engine.runRenderLoop(function () {
 
-         //console.log(caja.position)  ;
+       
             scene.render();
           // this.caja.rotation=a*1;
-           a=a+1;
+         
         });
 
         // Resize
